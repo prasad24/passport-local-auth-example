@@ -10,9 +10,13 @@
 <body>
     <div><a class="logo" href="/"><%=AppName%></a></div>
     <div class="container">
-        <h1>Welcome!</h1>
+        <h1>Welcome<%=user ? ' ' + user.name : ''%>!</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas ab distinctio autem praesentium! Similique sit hic sint facere corrupti porro odio, minima ratione molestiae architecto asperiores? Tenetur, repudiandae temporibus quia reiciendis alias nobis praesentium nostrum neque labore maiores, eum exercitationem esse! Perspiciatis placeat omnis laudantium eos a consectetur alias expedita.</p>
-        <div class="link"><a href="/login">Login</a></div>
+        <% if(!user) { %>
+            <div class="link"><a href="/login">Login</a></div>
+        <% } else { %>
+            <div class="link"><a href="/profile">Profile</a> | <a href="/logout">Logout</a></div>
+        <% } %>
     </div>
 </body>
 </html>

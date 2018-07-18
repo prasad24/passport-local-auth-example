@@ -1,10 +1,14 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
 
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
+const passportConfig = require('./passport-config');
+
 
 const app = express();
 
@@ -18,6 +22,18 @@ mongoose.connect('mongodb://localhost:27017/nodeauth', {
 })
 
 app.set('view engine', 'ejs');
+
+//session
+app.use(session({
+    secret: 'asasasfwet345534sdsdgs',
+    saveUninitialized: false,
+    resave: false
+}))
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+passportConfig.configure(passport);
 
 //setup express body parser
 app.use(express.json());
