@@ -1,0 +1,30 @@
+body {
+    background-color: #ccc;
+}
+
+.logo {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+}
+
+.container {
+    margin-top:30px;
+    padding:10px;
+    border: 1px solid #000;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.link {
+    margin: 20px 0;
+}
