@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
+const flash = require('express-flash-messages');
 
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
@@ -33,6 +34,7 @@ app.use(session({
 //passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 passportConfig.configure(passport);
 
 //setup express body parser

@@ -12,7 +12,9 @@ function configure(passport) {
                 done(null, user);
             } else {
                 console.log('In Local Passport Strategy Login Failed');
-                done(null, false);
+                done(null, false, {
+                    message: "Invalid username or password"
+                });
             }
         });
     }

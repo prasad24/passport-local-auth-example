@@ -11,6 +11,13 @@
     <div><a class="logo" href="/"><%=AppName%></a></div>
     <div class="container">
         <h1>Login</h1>
+        <% if(errors.error) { %>
+            <div class="errors">
+                <% for(error of errors.error) { %>
+                    <div><%= error %></div>
+                <% } %>
+            </div>
+        <% } %>
         <form method="POST" action="/login">
             <input type="text" placeholder="Username" name="username" />
             <input type="password" placeholder="Password" name="password" />

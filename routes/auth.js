@@ -5,8 +5,10 @@ const AppName = require('../config').AppName;
 const User = require('../models/user');
 
 router.get('/login', (req, res) => {
+    const errors = res.locals.getMessages();
     res.render('login', {
-        AppName
+        AppName,
+        errors
     });
 });
 
@@ -24,7 +26,8 @@ router.get('/login', (req, res) => {
 //Local authentication using passport
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/profile',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
+    failureFlash: true
 }));
 
 router.get('/register', (req, res) => {
