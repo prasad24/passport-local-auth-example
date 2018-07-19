@@ -33,7 +33,5 @@ userSchema.statics.login = function(username, password, done) {
         }
     })
 }
-   
+
 module.exports = mongoose.model('User', userSchema);
-
-
