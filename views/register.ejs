@@ -11,15 +11,45 @@
     <div><a class="logo" href="/"><%=AppName%></a></div>
     <div class="container">
         <h1>Register</h1>
-        <form method="POST" action="/register">
+        <% if(errors && errors.other) { %>
+            <span class="errors"><%= errors.other %></span>
+        <% } %>
+        <form method="POST" action="/register" novalidate>
             <label for="name">Name:</label><br/>
-            <input type="text" placeholder="Full Name" name="name" /><br/>
+            <input class="<%= errors && errors.name? 'error' : ''%>"
+                type="text" placeholder="Full Name" name="name"
+                value="<%=formdata && formdata.name ? formdata.name : ''%>" />
+            <% if(errors && errors.name) { %>
+                <span class="errors"><%= errors.name %></span>
+            <% } %><br/>
             <label for="email">Email:</label><br/>
-            <input type="email" placeholder="Email" name="email" /><br/>            
+            <input class="<%= errors && errors.email? 'error' : ''%>"
+                type="email" placeholder="Email" name="email"
+                value="<%=formdata && formdata.email ? formdata.email : ''%>" />
+            <% if(errors && errors.email) { %>
+                <span class="errors"><%= errors.email %></span>
+            <% } %><br/>
             <label for="name">Username:</label><br/>
-            <input type="text" placeholder="Username" name="username" /><br/>
+            <input class="<%= errors && errors.username? 'error' : ''%>"
+                type="text" placeholder="Username" name="username"
+                value="<%=formdata && formdata.username ? formdata.username : ''%>" />
+            <% if(errors && errors.username) { %>
+                <span class="errors"><%= errors.username %></span>
+            <% } %><br/>
             <label for="name">Password:</label><br/>
-            <input type="password" placeholder="Password" name="password" /><br/>
+            <input class="<%= errors && errors.password? 'error' : ''%>"
+                type="password" placeholder="Password" name="password"
+                value="<%=formdata && formdata.password ? formdata.password : ''%>"  />
+            <% if(errors && errors.password) { %>
+                <span class="errors"><%= errors.password %></span>
+            <% } %><br/>
+            <label for="name">Confirm Password:</label><br/>
+            <input class="<%= errors && errors.confirmpassword? 'error' : ''%>"
+                type="password" placeholder="Confirm Password" name="confirmpassword"
+                value="<%=formdata && formdata.confirmpassword ? formdata.confirmpassword : ''%>"  />
+            <% if(errors && errors.confirmpassword) { %>
+                <span class="errors"><%= errors.confirmpassword %></span>
+            <% } %><br/>
             <button type="submit">Register</button>
         </form>
         <div class="link"><a href="/login">Login?</a></div>

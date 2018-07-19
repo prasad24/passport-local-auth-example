@@ -10,7 +10,6 @@ const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const passportConfig = require('./passport-config');
 
-
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/nodeauth', {
